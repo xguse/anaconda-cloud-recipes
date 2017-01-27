@@ -1,0 +1,76 @@
+package:
+  name: pendulum
+  version: "0.8.0"
+
+source:
+  fn: pendulum-0.8.0.tar.gz
+  url: https://pypi.python.org/packages/91/9b/4e44fb960418d533bc2df8b5525ab75b602e8b919b9b35580e136fb01c2f/pendulum-0.8.0.tar.gz
+  md5: 541974190b0a5e70df5242d9bcedae4f
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pendulum = pendulum:main
+    #
+    # Would create an entry point called pendulum that calls pendulum.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - tzlocal
+    - python-dateutil
+    - pytzdata
+
+  run:
+    - python
+    - tzlocal
+    - python-dateutil
+    - pytzdata
+
+test:
+  # Python imports
+  imports:
+    - pendulum
+    - pendulum._extensions
+    - pendulum.formatting
+    - pendulum.lang
+    - pendulum.mixins
+    - pendulum.parsing
+    - pendulum.parsing.exceptions
+    - pendulum.tz
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - pytest
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/sdispater/pendulum
+  license: MIT
+  summary: 'Python datetimes made easy.'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
