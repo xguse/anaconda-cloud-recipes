@@ -1,0 +1,68 @@
+package:
+  name: rlr
+  version: "2.4"
+
+source:
+  fn: rlr-2.4.tar.gz
+  url: https://pypi.python.org/packages/f5/ba/17477a212565149877891eb05b8728f91e3a9cb34b61e0858dea8620728c/rlr-2.4.tar.gz
+  md5: 234e07035e07bc0453b84b05b925f727
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - rlr = rlr:main
+    #
+    # Would create an entry point called rlr that calls rlr.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - pylbfgs
+    - future
+
+  run:
+    - python
+    - numpy
+    - pylbfgs
+    - future
+
+test:
+  # Python imports
+  imports:
+    - rlr
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/datamade/rlr
+  license: Apache Software License
+  summary: 'Case weighted L2 regularized logistic regression'
+  license_family: APACHE
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

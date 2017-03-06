@@ -1,0 +1,93 @@
+package:
+  name: dedupe
+  version: "1.6.1"
+
+source:
+  fn: dedupe-1.6.1.tar.gz
+  url: https://pypi.python.org/packages/17/1e/9d43d35edf0839fb1f36b40446426a0bb0675fce5cb02cf82caac0814141/dedupe-1.6.1.tar.gz
+  md5: a9d941179360e6a3fc199d3503f4bec3
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - dedupe = dedupe:main
+    #
+    # Would create an entry point called dedupe that calls dedupe.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - fastcluster
+    - dedupe-hcluster
+    - affinegap >=1.3
+    - categorical-distance >=1.9
+    - future
+    - rlr >=2.3
+    - doublemetaphone
+    - highered >=0.2.0
+    - canonicalize
+    - simplecosine >=1.1
+    - haversine >=0.4.1
+    - btrees >=4.1.4
+    - simplejson
+    - zope.index
+    - levenshtein-search
+
+  run:
+    - python
+    - fastcluster
+    - dedupe-hcluster
+    - affinegap >=1.3
+    - categorical-distance >=1.9
+    - future
+    - rlr >=2.3
+    - doublemetaphone
+    - highered >=0.2.0
+    - canonicalize
+    - simplecosine >=1.1
+    - haversine >=0.4.1
+    - btrees >=4.1.4
+    - simplejson
+    - zope.index
+    - levenshtein-search
+
+test:
+  # Python imports
+  imports:
+    - dedupe
+    - dedupe.variables
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/datamade/dedupe
+  license: MIT License
+  summary: 'A python library for accurate and scaleable data deduplication and entity-resolution'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

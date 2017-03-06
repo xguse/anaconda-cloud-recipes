@@ -1,0 +1,64 @@
+package:
+  name: categorical-distance
+  version: "1.9"
+
+source:
+  fn: categorical-distance-1.9.tar.gz
+  url: https://pypi.python.org/packages/48/5c/fc965dba19378a75936ab27fb44f4e8d4ffe14eff27daf51ced701f423b2/categorical-distance-1.9.tar.gz
+  md5: 4242349b31bd03c1e862575333bde449
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - categorical-distance = categorical-distance:main
+    #
+    # Would create an entry point called categorical-distance that calls categorical-distance.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - categorical
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/datamade/categorical-distance
+  license: MIT License
+  summary: 'Compare two categorical variables'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

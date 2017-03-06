@@ -1,0 +1,66 @@
+package:
+  name: dedupe-hcluster
+  version: "0.3.2"
+
+source:
+  fn: dedupe-hcluster-0.3.2.tar.gz
+  url: https://pypi.python.org/packages/e5/58/1f972a6081c9084860c6c77f017d77e691a126463d0df2c6f7ddc74aef57/dedupe-hcluster-0.3.2.tar.gz
+  md5: 475cd508bf31ba7730d4874e98fdc6e9
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - dedupe-hcluster = dedupe-hcluster:main
+    #
+    # Would create an entry point called dedupe-hcluster that calls dedupe-hcluster.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - future
+    - numpy
+
+  run:
+    - python
+    - future
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - hcluster
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/datamade/hcluster
+  license: BSD License
+  summary: 'Hierarchical Clustering Algorithms (Information Theory)'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

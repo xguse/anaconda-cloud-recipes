@@ -1,0 +1,61 @@
+package:
+  name: levenshtein-search
+  version: "1.4.2"
+
+source:
+  fn: Levenshtein_search-1.4.2.tar.gz
+  url: https://pypi.python.org/packages/0e/3b/5d582ffd71352fe7a8666eff40baa031dc8056ef0ee35149ef41870e5dec/Levenshtein_search-1.4.2.tar.gz
+  md5: abfd28690df45062f0c72e644a60a065
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - levenshtein-search = levenshtein-search:main
+    #
+    # Would create an entry point called levenshtein-search that calls levenshtein-search.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+# test:
+  # Python imports
+  # imports:
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/mattandahalfew/Levenshtein_search
+  license: MIT
+  summary: 'Search through documents for approximately matching strings'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
