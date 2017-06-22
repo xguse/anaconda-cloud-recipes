@@ -1,0 +1,69 @@
+package:
+  name: geoparse
+  version: "0.1.10"
+
+source:
+  fn: GEOparse-0.1.10.tar.gz
+  url: https://pypi.python.org/packages/cb/36/c4c200e14da439ae9ed87eac57321fea19c9e89244401a04a6b12444136c/GEOparse-0.1.10.tar.gz
+  md5: 88ccf7127255adf2e37ecbb6acb2865a
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - geoparse = geoparse:main
+    #
+    # Would create an entry point called geoparse that calls geoparse.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.7
+    - pandas >=0.17
+    - wgetter >=0.6
+
+  run:
+    - python
+    - numpy >=1.7
+    - pandas >=0.17
+    - wgetter >=0.6
+
+test:
+  # Python imports
+  imports:
+    - GEOparse
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - tox
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/guma44/GEOparse
+  license: BSD License
+  summary: 'Python library to access Gene Expression Omnibus Database (GEO)'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

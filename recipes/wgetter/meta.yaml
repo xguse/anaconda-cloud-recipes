@@ -1,0 +1,60 @@
+package:
+  name: wgetter
+  version: "0.6"
+
+source:
+  fn: wgetter-0.6.tar.gz
+  url: https://pypi.python.org/packages/f5/bc/0e008907ca5f7b6dc23cb54ad11f44908d47fccb8520ea68d3698974ac7f/wgetter-0.6.tar.gz
+  md5: 247e663818e39e1df4e5aad81285d699
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - wgetter = wgetter:main
+    #
+    # Would create an entry point called wgetter that calls wgetter.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 1
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+# test:
+  # Python imports
+  # imports:
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/phoemur/wgetter
+  license: MIT License
+  summary: 'Another command line download utility written in python'
+  license_family: MIT
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
