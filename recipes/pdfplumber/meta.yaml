@@ -1,0 +1,70 @@
+{% set name = "pdfplumber" %}
+{% set version = "0.5.5" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "dc7d114b127ed965c41de5133ac1d046962dbe7455ea66e237a33ee9f2db438d" %}
+
+package:
+  version: '{{ version }}'
+  name: '{{ name|lower }}'
+
+source:
+  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  fn: '{{ name }}-{{ version }}.tar.gz'
+
+build:
+  number: 0
+  entry_points:
+    - pdfplumber = pdfplumber.cli:main
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - chardet
+    - pycrypto
+    - unicodecsv >=0.14.1
+    - pdfminer.six ==20151013
+    - pillow >=3.0.0
+    - wand
+    - spectra
+  run:
+    - python
+    - chardet
+    - pycrypto
+    - unicodecsv >=0.14.1
+    - pdfminer.six ==20151013
+    - pillow >=3.0.0
+    - wand
+    - spectra
+
+test:
+  commands:
+    - pdfplumber --help
+  requires:
+    - chardet
+    - nose
+    - pandas
+    - pdfminer.six ==20151013
+    - pillow >=3.0.0
+    - pycrypto
+    - unicodecsv >=0.14.1
+    - wand
+    - spectra
+  imports:
+    - pdfplumber
+    - pdfplumber.patches
+
+about:
+  doc_url: ''
+  description: ''
+  summary: Plumb a PDF for detailed information about each char, rectangle, and line.
+  dev_url: ''
+  license: MIT
+  license_family: MIT
+  home: The package home page
+  license_file: ''
+
+extra:
+  recipe-maintainers: ''

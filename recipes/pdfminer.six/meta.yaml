@@ -1,0 +1,62 @@
+{% set name = "pdfminer.six" %}
+{% set version = "20151013" %}
+{% set hash_type = "md5" %}
+{% set hash_value = "1d209ab14377ee3ca3ca32ca4dd8c762" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.zip'
+  url: https://pypi.python.org/packages/8d/b9/f6c94a0ea5364f1bd4c224b2cddd040d41b104166afc6b136cb31ca60515/pdfminer.six-20151013.zip
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+  number: 0
+
+requirements:
+  run:
+    - python
+    - six
+    - chardet
+  build:
+    - python
+    - setuptools
+    - six
+    - chardet
+
+test:
+  imports:
+    - pdfminer
+
+about:
+  license: MIT License
+  home: http://github.com/goulu/pdfminer
+  license_file: ''
+  description: 'fork of PDFMiner using six for Python 2+3 compatibility
+
+
+    PDFMiner is a tool for extracting information from PDF documents.
+
+    Unlike other PDF-related tools, it focuses entirely on getting
+
+    and analyzing text data. PDFMiner allows to obtain
+
+    the exact location of texts in a page, as well as
+
+    other information such as fonts or lines.
+
+    It includes a PDF converter that can transform PDF files
+
+    into other text formats (such as HTML). It has an extensible
+
+    PDF parser that can be used for other purposes instead of text analysis.'
+  summary: PDF parser and analyzer
+  dev_url: ''
+  license_family: MIT
+  doc_url: ''
+
+extra:
+  recipe-maintainers: ''

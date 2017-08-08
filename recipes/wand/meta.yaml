@@ -1,0 +1,56 @@
+{% set name = "wand" %}
+{% set version = "0.4.4" %}
+{% set hash_type = "md5" %}
+{% set hash_value = "855c14d36fec3216fa9b6511ce1c9171" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://pypi.python.org/packages/c5/0e/4c7846ffac7a478578ff77c93d6aff3da2c181972d9447c74bfe1e87ac06/Wand-0.4.4.tar.gz#md5=855c14d36fec3216fa9b6511ce1c9171
+  fn: '{{ name }}-{{ version }}.tar.gz'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  run:
+    - python
+  build:
+    - python
+    - setuptools
+
+test:
+  imports:
+    - wand
+  requires:
+    - memory_profiler >=0.27
+    - psutil >=1.0.1
+    - pytest >=2.3.0
+    - pytest-xdist >=1.8
+
+about:
+  home: http://wand-py.org/
+  description: ".. image:: http://docs.wand-py.org/en/latest/_static/wand.png\n   :width: 120\n   :height: 120\n\nWand_\n=====\n\nWand is a ``ctypes``-based simple ImageMagick_ binding for Python.\nIt doesn't\
+    \ cover all functionalities of MagickWand API currently.\nIt works on Python 2.6, 2.7, 3.2--3.5, and PyPy.\n\nYou can install the package from PyPI_ by using ``pip``:\n\n.. code-block:: console\n\n\
+    \   $ pip install Wand\n\nOr would you like to enjoy with bleeding edge?  Check out the head\nrevision of the source code from the `GitHub repository`__:\n\n.. code-block:: console\n\n   $ git clone\
+    \ git://github.com/dahlia/wand.git\n   $ cd wand/\n   $ python setup.py install\n\n.. _Wand: http://wand-py.org/\n.. _ImageMagick: http://www.imagemagick.org/\n.. _PyPI: https://pypi.python.org/pypi/Wand\n\
+    __ https://github.com/dahlia/wand\n\n\nDocs\n----\n\nRecent version\n   http://docs.wand-py.org/\n\nDevelopment version\n   http://docs.wand-py.org/en/latest/\n\n   .. image:: https://readthedocs.org/projects/wand/badge/\n\
+    \      :alt: Documentation Status\n      :target: http://docs.wand-py.org/en/latest/\n\n\nCommunity\n---------\n\nWebsite\n   http://wand-py.org/\n\nGitHub\n   https://github.com/dahlia/wand\n\nPackage\
+    \ Index (Cheeseshop)\n   https://pypi.python.org/pypi/Wand\n\n   .. image:: https://badge.fury.io/py/Wand.svg?\n      :alt: Latest PyPI version\n      :target: https://pypi.python.org/pypi/Wand\n\n\
+    Mailing list\n   wand@librelist.com\n\nList archive\n   http://librelist.com/browser/wand/\n   http://dir.gmane.org/gmane.comp.python.wand\n\nStack Overflow tag (Q&A)\n   http://stackoverflow.com/questions/tagged/wand\n\
+    \nQuora topic (Q&A)\n   https://www.quora.com/Wand-ImageMagick-binding\n\nIRC\n   `irc://irc.freenode.net/wand <http://webchat.freenode.net/?channels=wand>`_\n\nContinuous Integration (Travis CI)\n\
+    \   https://travis-ci.org/dahlia/wand\n\n   .. image:: https://secure.travis-ci.org/dahlia/wand.svg?branch=master\n      :alt: Build Status\n      :target: https://travis-ci.org/dahlia/wand\n\nCode\
+    \ Coverage\n   https://coveralls.io/r/dahlia/wand\n\n   .. image:: https://img.shields.io/coveralls/dahlia/wand.svg?style=flat\n      :alt: Coverage Status\n      :target: https://coveralls.io/r/dahlia/wand"
+  license_family: MIT
+  license_file: ''
+  doc_url: ''
+  license: MIT License
+  dev_url: ''
+  summary: Ctypes-based simple MagickWand API binding for Python
+
+extra:
+  recipe-maintainers: ''
